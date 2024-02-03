@@ -29,7 +29,7 @@ export const MyForm = () => {
         id='userName'
         type="text"
       />
-      {errors.userName && touched.userName && <p >{errors.userName}</p>}
+      {errors.userName && touched.userName && <p className='error'>{errors.userName}</p>}
 
       <label htmlFor="email">email</label>
       <input
@@ -40,7 +40,7 @@ export const MyForm = () => {
         id='email'
         type="email"
       />
-      {errors.email && touched.email && <p >{errors.email}</p>}
+      {errors.email && touched.email && <p className='error'>{errors.email}</p>}
 
       <label htmlFor="password">Password</label>
       <input
@@ -51,7 +51,7 @@ export const MyForm = () => {
         id='password'
         type="password"
       />
-      {errors.password && touched.password && <p >{errors.password}</p>}
+      {errors.password && touched.password && <p className='error'>{errors.password}</p>}
 
       <label htmlFor="confirmPassword">Confirm password</label>
       <input
@@ -62,17 +62,7 @@ export const MyForm = () => {
         id='confirmPassword'
         type="password"
       />
-      {errors.confirmPassword && touched.confirmPassword && <p >{errors.confirmPassword}</p>}
-
-      <label htmlFor="checkbox1">
-        <input
-          id="checkbox1"
-          type="checkbox"
-          name="checkbox1"
-          onChange={handleChange}
-          checked={values.checkbox1}
-        />
-        CheckBox</label>
+      {errors.confirmPassword && touched.confirmPassword && <p className='error'>{errors.confirmPassword}</p>}
       <button disabled={isSubmitting} type='submit'>Submit</button>
     </form>
   )

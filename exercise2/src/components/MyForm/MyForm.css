@@ -19,3 +19,8 @@ label{
 .form input::placeholder{
   padding: 5px;
 }
+
+.error{
+  font-size: 14px;
+  color: red;
+}
