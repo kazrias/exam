@@ -1,0 +1,32 @@
+.button {
+  border: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  border-radius: 1px;
+  transition: all .35s;
+  padding: 10px 15px;
+  cursor: pointer;
+  background-color: transparent;
+  width: 200px;
+  height: 75px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.button.main {
+  box-shadow: inset 0px 0px 15px 5px rgba(0, 255, 64, 0.551);
+}
+
+.button.secondary {
+  box-shadow: inset 0px 0px 15px 5px rgba(255, 38, 0, 0.511);
+}
+
+.button.main:hover {
+
+  box-shadow: inset 0px 0px 1px 1px rgba(0, 255, 64, 255);
+}
+
+.button.secondary:hover {
+
+  box-shadow: inset 0px 0px 1px 1px rgba(255, 38, 0, 0.511);
+}
