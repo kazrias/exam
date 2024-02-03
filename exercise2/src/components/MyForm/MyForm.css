@@ -24,3 +24,14 @@ label{
   font-size: 14px;
   color: red;
 }
+
+.submitBtn{
+  width: 100%;
+  margin-top: 15px;
+  height: 30px;
+  font-size: 20px;
+}
+
+.submitBtn:disabled{
+  background-color: red;
+}

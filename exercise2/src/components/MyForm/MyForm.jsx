@@ -4,20 +4,19 @@ import { basicSchema } from '../../schema/basicSchema'
 import './MyForm.css'
 export const MyForm = () => {
   const onSubmit = async (values, actions) => {
-    console.log(values);
+    console.log(values, actions);
   }
-  const { values, errors, touched, isSubmitting, handleBlur, handleChange, handleSubmit } = useFormik({
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
     initialValues: {
       userName: '',
       email: '',
       password: '',
       confirmPassword: '',
-      checkbox1: false,
     },
     validationSchema: basicSchema,
     onSubmit,
   })
-
+  console.log(errors);
   return (
     <form className='form' onSubmit={handleSubmit} autoComplete='off'>
       <label htmlFor="userName">Username</label>
@@ -47,6 +46,7 @@ export const MyForm = () => {
         value={values.password}
         onChange={handleChange}
         onBlur={handleBlur}
+        autoComplete='off'
         placeholder='Enter your password'
         id='password'
         type="password"
@@ -59,11 +59,13 @@ export const MyForm = () => {
         onChange={handleChange}
         onBlur={handleBlur}
         placeholder='Confrim password'
+        autoComplete='off'
         id='confirmPassword'
         type="password"
       />
       {errors.confirmPassword && touched.confirmPassword && <p className='error'>{errors.confirmPassword}</p>}
-      <button disabled={isSubmitting} type='submit'>Submit</button>
+
+      <button className='submitBtn' type='submit'>Submit</button>
     </form>
   )
 }
