@@ -1,10 +1,19 @@
 import React from 'react'
 import { useFormik } from 'formik'
 import { basicSchema } from '../../schema/basicSchema'
+import { sendRequest } from '../../helpers/sendRequest'
+import { useDispatch } from 'react-redux'
+import { createHandle, addUser } from '../../store/slices/appSlice'
 import './MyForm.css'
 export const MyForm = () => {
+  const dispatch = useDispatch();
+
   const onSubmit = async (values, actions) => {
-    console.log(values, actions);
+    console.log(values);
+    let res = await sendRequest('POST', 'http://localhost:3001/users', values)
+    console.log('here ');
+    console.log('res is',res);
+    actions.resetForm()
   }
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
     initialValues: {
@@ -19,6 +28,7 @@ export const MyForm = () => {
   console.log(errors);
   return (
     <form className='form' onSubmit={handleSubmit} autoComplete='off'>
+      <button onClick={() => dispatch(createHandle({ createClick: false }))} className='closeBtn'>X</button>
       <label htmlFor="userName">Username</label>
       <input
         value={values.userName}

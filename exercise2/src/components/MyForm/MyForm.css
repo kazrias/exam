@@ -2,6 +2,15 @@
   background-color: rgba(0, 255, 191, 0.492);
   padding: 15px;  
   min-width: 350px;
+  position: relative;
+}
+.closeBtn{
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 5px;
+  background-color: red;
+  cursor: pointer;
 }
 label{
   display: block;
