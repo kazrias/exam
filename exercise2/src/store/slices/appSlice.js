@@ -10,15 +10,15 @@ export const appSlice = createSlice({
   reducers: {
     createHandle: (state, action) => {
       state.createIsClicked = action.payload.createClick;
-      console.log(current(state).createIsClicked);
+
     },
 
     showHandle: (state, action) => {
+      console.log('click');
       state.showIsClicked = action.payload.showClick;
       console.log(current(state).showIsClicked);
     },
     addUser: (state, action) => {
-      console.log(action.payload);
       state.users.push(action.payload)
     }
   }

@@ -9,10 +9,8 @@ export const MyForm = () => {
   const dispatch = useDispatch();
 
   const onSubmit = async (values, actions) => {
-    console.log(values);
     let res = await sendRequest('POST', 'http://localhost:3001/users', values)
-    console.log('here ');
-    console.log('res is',res);
+    dispatch(addUser(res))
     actions.resetForm()
   }
   const { values, errors, touched, handleBlur, handleChange, handleSubmit } = useFormik({
@@ -25,7 +23,6 @@ export const MyForm = () => {
     validationSchema: basicSchema,
     onSubmit,
   })
-  console.log(errors);
   return (
     <form className='form' onSubmit={handleSubmit} autoComplete='off'>
       <button onClick={() => dispatch(createHandle({ createClick: false }))} className='closeBtn'>X</button>
