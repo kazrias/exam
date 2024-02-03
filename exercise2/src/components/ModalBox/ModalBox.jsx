@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { MyForm } from '../MyForm/MyForm'
 import './ModalBox.css'
 import { useSelector } from 'react-redux'
 export const ModalBox = ({ children }) => {
@@ -7,7 +8,7 @@ export const ModalBox = ({ children }) => {
   return (
     <div className="modal">
       <div className="wrapper">
-        a
+        <MyForm />
       </div>
     </div>
   )

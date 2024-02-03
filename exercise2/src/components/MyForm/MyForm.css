@@ -1,0 +1,21 @@
+.form{
+  background-color: rgba(0, 255, 191, 0.492);
+  padding: 15px;  
+  min-width: 350px;
+}
+label{
+  display: block;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.form input{
+  height: 30px;
+  width: 100%;  
+  display: block;
+}
+
+.form input,
+.form input::placeholder{
+  padding: 5px;
+}
