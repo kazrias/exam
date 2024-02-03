@@ -1,13 +1,24 @@
-class Service {
-  constructor() {
-
+Array.prototype.groupBy = function (key) {
+  const res = {};
+  for (const obj of this) {
+    const resKey = obj[key];
+    if (!res[resKey]) {
+      res[resKey] = [];
+    }
+    res[resKey].push(obj);
   }
+  return res;
+}
+
+class Service {
+  
   static getInstance() {
     if (!this.instance) {
       this.instance = new this();
     }
     return this.instance;
   }
+
   #fetchData = async (url) => {
     try {
       const response = await fetch(url);
@@ -34,48 +45,15 @@ class Service {
 let mainService = Service.getInstance();
 
 
-async function getSomeData() {
-  let data = await mainService.fetchDataFromUrl('https://jsonplaceholder.typicode.com/posts');
+async function getSomeDataTest() {
+  const data = await mainService.fetchDataFromUrl('https://jsonplaceholder.typicode.com/posts');
   console.log(data);
-  console.log(mainService.getGroupedDataBy(data, 'id'));
+  const dataById = mainService.getGroupedDataBy(data, 'id')
+  console.log(dataById);
+  const dataByUserId = mainService.getGroupedDataBy(data, 'userId')
+  console.log(dataByUserId);
 }
-getSomeData()
-Array.prototype.groupBy = function (key) {
-  const res = {};
-  for (const obj of this) {
-    const resKey = obj[key];
-    if (!res[resKey]) {
-      res[resKey] = [];
-    }
-    res[resKey].push(obj);
-  }
-  return res;
-}
+getSomeDataTest()
 
-// const users = [
-//   {
-//     name: 'Tyom',
-//     age: 23,
-//     gender: 'male',
-//   },
-//   {
-//     name: 'Artur',
-//     age: 13,
-//     gender: 'male'
-//   },
-//   {
-//     name: 'Armin',
-//     age: 23,
-//     gender: 'female'
-//   },
-//   {
-//     name:"Anush",
-//     age:33,
-//     gender:'female'
-//   }
-// ]
-// console.log('gender', users.groupBy('gender'));
-// console.log('age', users.groupBy('age'));
-// console.log('name', users.groupBy('name'));
 
 
